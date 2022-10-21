@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+
 
 /**
  * main - prints fizzbuzz
@@ -8,7 +10,7 @@ int main(void)
 {
 	int n;
 
-	printf("1");
+
 	for (n = 2; n <= 100; n++)
 	{
 		printf(" ");
