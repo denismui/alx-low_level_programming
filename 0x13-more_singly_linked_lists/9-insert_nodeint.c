@@ -1,9 +1,11 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - Inserts new node to listint_t list at given position.
+ * insert_nodeint_at_index - Inserts new node to listint_t list
+ * at given position.
  * @head: Pointer to address of head of listint_t list.
- * @idx: Index of listint_t list where new node should be added -Indices starts at 0.
+ * @idx: Index of listint_t list where new node
+ * should be added -Indices starts at 0.
  * @n: Integer for new node to contain.
  *
  * Return: If function fails - NULL.
