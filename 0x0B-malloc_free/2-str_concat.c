@@ -1,63 +1,49 @@
 #include "main.h"
-/**
- * _strlen - count array
- * @s: array of elements
- * Return: i
- */
-
-int _strlen(char *s)
-{
-	unsigned int i;
-
-	i = 0;
-	while (s[i] != '\0') /*count character of string*/
-	{
-		i++;
-	}
-	return (i);
-}
+#include <stdlib.h>
 
 /**
- * str_concat - back a pointer to array
- * @s1: array one
- * @s2: array two
- * Return: Always an array dynamic
+ * str_concat - function that concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * Return: NULL on failure
  */
 
 char *str_concat(char *s1, char *s2)
 {
-	char *dst;
-	unsigned int i, j, size;
+	int size1 = 0;
+	int size2 = 0;
+	int i, j;
+	char *p;
 
-	/*if the array is empty*/
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
+/* calculates the length of string 1*/
+	while (*(s1 + size1))
+		size1++;
+/* calculates the length of the string 2*/
+	while (*(s2 + size2))
+		size2++;
+/* A pointer pointed to the memory area allocation*/
+	p = malloc((size1 + size2) + 1);
 
-	/*count total size*/
-	size = (_strlen(s1) + _strlen(s2) + 1);
-
-	/*malloc*/
-	dst = (char *) malloc(size * sizeof(char));
-
-	if (dst == 0);
-	{
+	if (p == NULL)
 		return (NULL);
-	}
-	/*concatenate arrays*/
-	for (i = 0; *(s1 + i) != '\0'; i++)
+	i = 0;
+/* Copying the first string on the allocated memory */
+	while (i < size1)
 	{
-		*(dst + i) = *(s1 + i);
+		*(p + i) = *(s1 + i);
+			i++;
 	}
-
-	for (j = 0; *(s2 + j) != '\0'; j++)
+/* Copying the second string */
+	j = 0;
+	while (j <= size2)
 	{
-		*(dst + i) = *(s2 + j);
-		i++;
+		*(p + j + size1) = *(s2 + j);
+			j++;
 	}
-
-	return (dst);
+/* The program returns a pointer pointed */
+	return (p);
 }
-
